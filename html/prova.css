@@ -1,0 +1,199 @@
+
+/* CONFIGURAÇÕES GERAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111;
+    color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 20px;
+    background-color: #191919;
+    border-bottom: 3px solid #8bc34a;
+    text-align: center;
+}
+
+.cabecalho h1 {
+    color: #8bc34a;
+    font-size: 36px;
+    letter-spacing: 3px;
+}
+
+.dados-candidato,
+.informacoes {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.informacoes {
+    padding: 12px;
+    background-color: #292929;
+    border-radius: 8px;
+}
+
+/* ÁREA PRINCIPAL */
+main {
+    width: 100%;
+    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 30px 20px;
+}
+
+/* CARTÃO DA PROVA */
+.cartao-prova {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 30px;
+    background-color: #1c1c1c;
+    border: 1px solid #383838;
+    border-radius: 12px;
+}
+
+.cartao-prova h2 {
+    color: #8bc34a;
+    border-bottom: 1px solid #444;
+    padding-bottom: 12px;
+}
+
+/* ALTERNATIVAS */
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+}
+
+.alternativa {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+    background-color: #292929;
+    color: #f2f2f2;
+    border: 2px solid #444;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.alternativa:hover {
+    background-color: #353535;
+    border-color: #8bc34a;
+}
+
+.alternativa.selecionada {
+    background-color: #263b20;
+    border-color: #8bc34a;
+}
+
+/* BOTÕES DE NAVEGAÇÃO */
+.botoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.botoes button,
+#resultadoFinal button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 150px;
+    padding: 13px 18px;
+    margin: 0;
+    background-color: #8bc34a;
+    color: #111;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.botoes button:hover,
+#resultadoFinal button:hover {
+    background-color: #a4e45d;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* RESULTADO */
+#resultadoFinal {
+    align-items: center;
+    text-align: center;
+}
+
+#resultadoFinal p {
+    font-size: 18px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+    .cabecalho h1 {
+        font-size: 28px;
+    }
+
+    main {
+        padding: 20px 12px;
+    }
+
+    .cartao-prova {
+        padding: 20px;
+    }
+
+    .dados-candidato,
+    .informacoes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botoes button {
+        flex: auto;
+        width: 100%;
+    }
+}

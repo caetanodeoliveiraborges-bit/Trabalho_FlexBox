@@ -1,41 +1,91 @@
-        <!DOCTYPE html>
-        <html lang="pt-br">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Exame Hunter</title>
-            <link rel="stylesheet" href="style.css">
-        </head>
-        <body>
-            <header>
-                <h1>EXAME HUNTER — PROVA DIGITAL</h1>
-                <h2>Prova de Conhecimentos e Raciocínio</h2>
-    <br>
-                <img src="imagens/images.jpg" alt="Imagem do Exame Hunter" width="300">
-                <p>Responda às questões com atenção e escolha a alternativa que considerar correta.</p> <p>Ao final, confira seu desempenho e descubra se está preparado para se tornar um Hunter.</p>
-                <h3>Instruções do Exame</h3>
-                <p>O candidato terá 1 hora para concluir o exame, composto por 50 questões de múltipla escolha. Cada questão vale 2 pontos, totalizando 100 pontos possíveis.</p>
-                <p>Para ser aprovado, o candidato deverá obter no mínimo 90 pontos. Leia atentamente cada questão e selecione a alternativa que considerar correta. Ao término do tempo ou após a finalização da prova, o sistema calculará automaticamente a pontuação.</p> 
-                <p>Boa sorte.</p>
-            </header>
-            <main>
-        <section>
-                <h2>Dados do Candidato</h2>
-    <br>
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" placeholder="Digite seu nome completo" id="nome">
-    <br><br>
-                    <label for="idade">Idade</label>
-                    <input type="text" placeholder="Digite sua idade" id="idade">
-    <br><br>
-                    <label for="cidade">Cidade</label>
-                    <input type="text" placeholder="Digite sua cidade natal" id="cidade">
-                    
-        </section>
-            </main>
+       
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exame Hunter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-            <footer>
-    <br><br>
-                    <button onclick="window.location.href='prova.html'">Iniciar Exame</button>
-            </footer>
+    <header class="cabecalho">
+        <h1>EXAME HUNTER</h1>
+        <h2>Prova Digital de Conhecimentos e Raciocínio</h2>
+
+        <div class="imagem">
+            <img src="imagens/images.jpg" alt="Imagem do Exame Hunter">
+        </div>
+
+        <p>Responda às questões com atenção e escolha a alternativa que considerar correta.</p>
+        <p>Ao final, confira seu desempenho e descubra se está preparado para se tornar um Hunter.</p>
+    </header>
+
+    <main>
+        <section class="instrucoes">
+            <h2>Instruções do Exame</h2>
+
+            <p>O candidato terá 1 hora para concluir a prova.</p>
+            <p>O exame possui 8 questões de múltipla escolha.</p>
+            <p>Cada questão vale 2 pontos, totalizando 16 pontos.</p>
+            <p>Para ser aprovado, é necessário obter pelo menos 14 pontos.</p>
+            <p>Leia atentamente cada questão antes de escolher sua resposta.</p>
+
+            <p class="boa-sorte">Boa sorte, candidato.</p>
+        </section>
+
+        <section class="dados">
+            <h2>Dados do Candidato</h2>
+
+            <form id="formulario">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome"
+                    placeholder="Digite seu nome completo" required>
+
+                <label for="idade">Idade</label>
+                <input type="number" id="idade"
+                    placeholder="Digite sua idade"
+                    min="1" max="120" step="1" required>
+
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade"
+                    placeholder="Digite sua cidade" required>
+
+                <button type="submit">Iniciar Exame</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Exame Hunter — Somente os preparados chegarão ao final.</p>
+    </footer>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value.trim();
+            const idade = Number(document.getElementById("idade").value);
+            const cidade = document.getElementById("cidade").value.trim();
+
+            if (!nome || !cidade ||
+                !Number.isInteger(idade) ||
+                idade < 1 || idade > 120) {
+                alert("Preencha todos os dados corretamente!");
+                return;
+            }
+
+            sessionStorage.setItem("nomeCandidato", nome);
+            sessionStorage.setItem("idadeCandidato", idade);
+            sessionStorage.setItem("cidadeCandidato", cidade);
+
+            window.location.href = "prova.html";
+        });
+    </script>
+
+</body>
+</html>
+
 

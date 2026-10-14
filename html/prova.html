@@ -1,0 +1,440 @@
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="prova.css">
+        <title>Prova</title>
+    </head>
+    <body>
+        <header></header>
+            <h1>Prova de Conhecimentos e Raciocínio</h1>
+        </header>
+
+<div class="questao">
+    <h2>Questão 1</h2>
+
+    <p>Durante o exame, um examinador apresenta a sequência: 2, 6, 12, 20, 30, ?</p>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        A) 36
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        B) 40
+    </button>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        C) 42
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        D) 48
+    </button>
+
+    <p id="resultado"></p>
+</div>
+<div class="questao">
+    <h2>Questão 2</h2>
+
+    <p>Você está perdido em uma floresta durante o exame. Seus suprimentos estão acabando. Qual é a melhor decisão?</p>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        A) Correr sem direção para encontrar a saída
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        B) Gastar toda a energia tentando escalar uma árvore
+    </button>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        C) Avaliar o ambiente, conservar recursos e procurar uma rota segura
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        D) Separar-se do grupo imediatamente
+    </button>
+
+    <p id="resultado"></p>
+</div>
+<div class="questao">
+    <h2>Questão 3</h2>
+
+    <p>Um adversário é muito mais forte fisicamente que você. O que fazer?</p>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        A) Observar seus padrões e explorar oportunidades
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        B) Tentar vencer pela força bruta
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        C) Atacar sem pensar
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        D) Ignorar completamente seus movimentos
+    </button>
+
+    <p id="resultado"></p>
+</div>
+<div class="questao">
+    <h2>Questão 4</h2>
+
+    <p>Você está olhando para o norte. Vira à direita, depois à direita novamente e, por fim, à esquerda. Para qual direção está olhando?</p>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        A) Norte
+    </button>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        B) Leste
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        C) Leste
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        D) Oeste
+    </button>
+
+    <p id="resultado"></p>
+</div>
+<div class="questao">
+    <h2>Questão 5</h2>
+
+    <p>Você tem três tarefas para concluir, mas só consegue terminar duas antes do prazo. Como decide?</p>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        A) Faz as duas mais fáceis.
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        B) Escolhe aleatoriamente.
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        C) Nâo consegue decidir e não faz nenhuma.
+    </button>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        D) Prioriza as tarefas mais importantes e avalia as consequências de deixar uma pendente.
+    </button>
+
+    <p id="resultado"></p>
+</div>
+<div class="questao">
+    <h2>Questão 6</h2>
+
+    <p>Você está perdido em uma floresta durante o exame. Seus suprimentos estão acabando. Qual é a melhor decisão?</p>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        A) Correr sem direção para encontrar a saída
+    </button>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        B) Avaliar o ambiente, conservar recursos e procurar uma rota segura
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        C) Gastar toda a energia tentando escalar uma árvore
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        D)Separar-se do grupo imediatamente
+    </button>
+
+    <p id="resultado"></p>
+</div>
+
+<div class="questao">
+    <h2>Questão 10</h2>
+
+    <p>“Você só pode salvar uma das duas pessoas: sua filha ou seu filho. O tempo está acabando. Quem você escolhe?”</p>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        A) Salvar seu filho.
+    </button>
+
+    <button class="alternativa" onclick="responder(this, false)">
+        B) Salvar sua filha.
+    </button>
+
+    <button class="alternativa" onclick="responder(this, true)">
+        D) Silêncio.
+    </button>
+
+    <p id="resultado"></p>
+</div>
+        
+<script>
+    function responder(botao, correta) {
+        const alternativas = document.querySelectorAll(".alternativa");
+        const resultado = document.getElementById("resultado");
+
+        // Limpa a seleção anterior
+        alternativas.forEach(function (alternativa) {
+            alternativa.classList.remove("selecionada");
+        });
+
+        // Destaca a alternativa escolhida
+        botao.classList.add("selecionada");
+
+        // Mostra o resultado
+        if (correta) {
+            resultado.textContent = "Resposta correta!";
+            resultado.style.color = "#8bc34a";
+        } else {
+            resultado.textContent = "Resposta incorreta!";
+            resultado.style.color = "#ff5252";
+        }
+    }
+</script>
+    </body>
+ 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova — Exame Hunter</title>
+    <link rel="stylesheet" href="prova.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <h1>EXAME HUNTER</h1>
+        <p>Prova oficial de conhecimentos e raciocínio</p>
+
+        <div class="dados-candidato">
+            <span id="nomeCandidato"></span>
+            <span id="cidadeCandidato"></span>
+        </div>
+
+        <div class="informacoes">
+            <span id="progresso">Questão 1 de 6</span>
+            <span id="cronometro">Tempo: 60:00</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="cartao-prova" id="cartaoProva">
+            <h2 id="numeroQuestao">Questão 1</h2>
+
+            <p id="pergunta"></p>
+
+            <div id="alternativas" class="alternativas"></div>
+
+            <p id="mensagem" aria-live="polite"></p>
+
+            <div class="botoes">
+                <button id="anterior" type="button">Anterior</button>
+                <button id="proximo" type="button">Próxima questão</button>
+                <button id="finalizar" type="button">Finalizar prova</button>
+            </div>
+        </section>
+
+        <section id="resultadoFinal" class="cartao-prova" hidden>
+            <h2>Resultado do Exame</h2>
+            <p id="mensagemFinal"></p>
+            <p id="pontuacaoFinal"></p>
+            <button type="button" onclick="location.href='index.html'">
+                Voltar ao início
+            </button>
+        </section>
+    </main>
+
+    <script>
+        const questoes = [
+            {
+                pergunta: "Qual número completa a sequência: 2, 6, 12, 20, 30, ?",
+                alternativas: ["36", "40", "42", "48"],
+                correta: 2
+            },
+            {
+                pergunta: "Você está perdido em uma floresta e seus suprimentos estão acabando. O que fazer?",
+                alternativas: [
+                    "Correr sem direção",
+                    "Gastar toda a energia escalando uma árvore",
+                    "Avaliar o ambiente, conservar recursos e procurar uma rota segura",
+                    "Separar-se do grupo imediatamente"
+                ],
+                correta: 2
+            },
+            {
+                pergunta: "Um adversário é mais forte fisicamente que você. Qual estratégia escolher?",
+                alternativas: [
+                    "Observar seus padrões e explorar oportunidades",
+                    "Vencer pela força bruta",
+                    "Atacar sem pensar",
+                    "Ignorar seus movimentos"
+                ],
+                correta: 0
+            },
+            {
+                pergunta: "Você está olhando para o norte. Vira à direita, depois à direita e, por fim, à esquerda. Para qual direção está olhando?",
+                alternativas: ["Norte", "Leste", "Sul", "Oeste"],
+                correta: 1
+            },
+            {
+                pergunta: "Você tem três tarefas, mas só pode concluir duas no prazo. Como decide?",
+                alternativas: [
+                    "Faz as duas mais fáceis",
+                    "Escolhe aleatoriamente",
+                    "Não decide e não faz nenhuma",
+                    "Prioriza as mais importantes e avalia as consequências"
+                ],
+                correta: 3
+            },
+            {
+                pergunta: "Uma senhora pergunta: 'Você só pode escolher entre salvar seu melhor amigo ou um desconhecido. O que faz?'",
+                alternativas: [
+                    "Escolhe sempre o amigo",
+                    "Escolhe sempre o desconhecido",
+                    "Avalia a situação antes de tomar uma decisão",
+                    "Decide aleatoriamente"
+                ],
+                correta: 2
+            }
+        ];
+
+        let atual = 0;
+        let respostas = Array(questoes.length).fill(null);
+        let restante = 60 * 60;
+        let encerrada = false;
+
+        const pergunta = document.getElementById("pergunta");
+        const alternativas = document.getElementById("alternativas");
+        const mensagem = document.getElementById("mensagem");
+        const cronometro = document.getElementById("cronometro");
+        const progresso = document.getElementById("progresso");
+        const cartao = document.getElementById("cartaoProva");
+        const resultadoFinal = document.getElementById("resultadoFinal");
+
+        document.getElementById("nomeCandidato").textContent =
+            "Candidato: " + (sessionStorage.getItem("nomeCandidato") || "Não informado");
+
+        document.getElementById("cidadeCandidato").textContent =
+            "Cidade: " + (sessionStorage.getItem("cidadeCandidato") || "Não informada");
+
+        function mostrarQuestao() {
+            const q = questoes[atual];
+
+            document.getElementById("numeroQuestao").textContent =
+                "Questão " + (atual + 1);
+
+            progresso.textContent =
+                "Questão " + (atual + 1) + " de " + questoes.length;
+
+            pergunta.textContent = q.pergunta;
+            alternativas.replaceChildren();
+            mensagem.textContent = "";
+
+            q.alternativas.forEach(function(texto, indice) {
+                const botao = document.createElement("button");
+                botao.type = "button";
+                botao.className = "alternativa";
+                botao.textContent =
+                    String.fromCharCode(65 + indice) + ") " + texto;
+
+                if (respostas[atual] === indice) {
+                    botao.classList.add("selecionada");
+                }
+
+                botao.addEventListener("click", function() {
+                    if (encerrada) return;
+
+                    respostas[atual] = indice;
+                    mostrarQuestao();
+                });
+
+                alternativas.appendChild(botao);
+            });
+
+            document.getElementById("anterior").disabled = atual === 0;
+
+            document.getElementById("proximo").disabled =
+                atual === questoes.length - 1;
+        }
+
+        function atualizarCronometro() {
+            const minutos = Math.floor(restante / 60);
+            const segundos = restante % 60;
+
+            cronometro.textContent = "Tempo: " +
+                String(minutos).padStart(2, "0") + ":" +
+                String(segundos).padStart(2, "0");
+        }
+
+        function finalizarProva() {
+            if (encerrada) return;
+
+            encerrada = true;
+
+            const acertos = respostas.reduce(function(total, resposta, indice) {
+                return total + (resposta === questoes[indice].correta ? 1 : 0);
+            }, 0);
+
+            const pontos = acertos * (100 / questoes.length);
+            const aprovado = pontos >= 90;
+
+            cartao.hidden = true;
+            resultadoFinal.hidden = false;
+
+            document.getElementById("mensagemFinal").textContent =
+                aprovado
+                    ? "Parabéns! Você foi aprovado no Exame Hunter!"
+                    : "Você não atingiu a pontuação necessária. Tente novamente!";
+
+            document.getElementById("pontuacaoFinal").textContent =
+                "Acertos: " + acertos + " de " + questoes.length +
+                " | Pontuação: " + pontos.toFixed(0) + "/100";
+        }
+
+        document.getElementById("anterior").addEventListener("click", function() {
+            if (atual > 0 && !encerrada) {
+                atual--;
+                mostrarQuestao();
+            }
+        });
+
+        document.getElementById("proximo").addEventListener("click", function() {
+            if (atual < questoes.length - 1 && !encerrada) {
+                atual++;
+                mostrarQuestao();
+            }
+        });
+
+        document.getElementById("finalizar").addEventListener("click", function() {
+            if (confirm("Tem certeza de que deseja finalizar a prova?")) {
+                finalizarProva();
+            }
+        });
+
+        const temporizador = setInterval(function() {
+            if (encerrada) {
+                clearInterval(temporizador);
+                return;
+            }
+
+            restante--;
+            atualizarCronometro();
+
+            if (restante <= 0) {
+                restante = 0;
+                atualizarCronometro();
+                finalizarProva();
+                clearInterval(temporizador);
+            }
+        }, 1000);
+
+        mostrarQuestao();
+        atualizarCronometro();
+    </script>
+
+</body>
+</html>
+   </html>
