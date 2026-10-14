@@ -1,9 +1,21 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap');
+
+:root {
+    --fundo: #101112;
+    --painel: #1b1d1f;
+    --painel-claro: #242729;
+    --verde: #8cae72;
+    --dourado: #b8aa7a;
+    --texto: #eeeeee;
+    --secundario: #a5a8a6;
+    --borda: #3b3f40;
+}
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
@@ -11,175 +23,172 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #111;
-    color: #f2f2f2;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 18px;
 }
-
 
 .cabecalho {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding: 40px 20px;
+    gap: 10px;
+    padding: 30px 20px;
     text-align: center;
-    background-color: #191919;
-    border-bottom: 3px solid #8bc34a;
+    background: #171819;
+    border-bottom: 2px solid var(--verde);
 }
 
 .cabecalho h1 {
-    color: #8bc34a;
-    font-size: 42px;
-    letter-spacing: 3px;
-}
-
-.cabecalho h2 {
-    font-size: 22px;
+    color: var(--texto);
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 5px;
 }
 
 .cabecalho p {
-    max-width: 750px;
+    color: var(--secundario);
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-
-.imagem {
+main {
+    width: min(100% - 32px, 900px);
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 25px;
+    padding: 35px 0 45px;
+}
+
+/* Imagem principal */
+.imagem {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #181a1b;
 }
 
 .imagem img {
     display: block;
     width: 100%;
-    max-width: 300px;
     height: auto;
-    border-radius: 12px;
-    border: 2px solid #8bc34a;
+    max-height: 360px;
+    object-fit: contain;
+    object-position: center;
 }
-
-
-main {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 25px;
-    padding: 30px 20px;
-}
-
 
 .instrucoes,
 .dados {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 15px;
-    padding: 25px;
-    background-color: #1c1c1c;
-    border: 1px solid #383838;
-    border-radius: 12px;
+    gap: 16px;
+    padding: clamp(20px, 4vw, 30px);
+    background: var(--painel);
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--verde);
+    border-radius: 6px;
 }
 
 .instrucoes h2,
 .dados h2 {
-    color: #8bc34a;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #444;
+    color: var(--verde);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
 }
 
-.boa-sorte {
-    font-weight: bold;
-    text-align: center;
-    color: #8bc34a;
+.instrucoes p,
+.instrucoes li {
+    color: var(--secundario);
+    line-height: 1.6;
 }
 
+.instrucoes ul {
+    padding-left: 22px;
+}
 
 #formulario {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
+    gap: 15px;
 }
 
 #formulario label {
-    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-weight: 600;
 }
 
 #formulario input {
     width: 100%;
-    padding: 13px;
-    background-color: #292929;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 7px;
+    padding: 12px 14px;
+    color: var(--texto);
+    background: #111314;
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    font: inherit;
     outline: none;
 }
 
 #formulario input:focus {
-    border-color: #8bc34a;
+    border-color: var(--verde);
 }
 
-
-button {
+button,
+#formulario button {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 14px 20px;
-    margin-top: 10px;
-    background-color: #8bc34a;
-    color: #111;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 7px;
+    align-items: center;
+    padding: 13px 20px;
+    color: #111411;
+    background: var(--verde);
+    border: 1px solid var(--verde);
+    border-radius: 4px;
+    font: 700 1rem 'Orbitron', sans-serif;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: 0.2s ease;
 }
 
-button:hover {
-    background-color: #a4e45d;
-    transform: translateY(-2px);
+button:hover,
+#formulario button:hover {
+    color: var(--verde);
+    background: transparent;
 }
 
 footer {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: auto;
-    padding: 22px;
-    background-color: #191919;
-    color: #aaa;
+    padding: 20px;
+    color: var(--secundario);
     text-align: center;
-    border-top: 1px solid #383838;
+    background: #171819;
+    border-top: 1px solid var(--borda);
 }
-
 
 @media (max-width: 600px) {
     .cabecalho {
-        padding: 30px 15px;
+        padding: 25px 12px;
     }
 
     .cabecalho h1 {
-        font-size: 30px;
-    }
-
-    .cabecalho h2 {
-        font-size: 18px;
+        letter-spacing: 2px;
     }
 
     main {
-        padding: 20px 12px;
+        width: calc(100% - 22px);
+        padding-top: 22px;
     }
 
-    .instrucoes,
-    .dados {
-        padding: 18px;
+    .imagem img {
+        max-height: 240px;
     }
 }
+
